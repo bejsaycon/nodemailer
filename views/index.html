@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <link rel="icon" href="./images/bg.ico" type="image/icon type">
+		<title>bryan jeff</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+
+    <header>
+        <a href="#" class="logo">Bruh</a>
+        <div class="toggle" onclick="toggleMenu();">
+            <ul class="menu" onclick="toggleMenu();">
+                <li><a href="#Home" onclick="toggleMenu();">Home</a></li>
+                <li><a href="#About" onclick="toggleMenu();">About</a></li>
+                <li><a href="#Contact" onclick="toggleMenu();">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="banner" id="Home">
+        <div class="text-box">
+            <h2>i am<br> <span>Bryan Jeff</span></h2>
+            <h3>self-learning web developer, <br>electronics engineering student</h3>
+            <a href ="#About" class="btn">about</a>
+        </div>
+    </section>
+    <section class="about" id="About">
+        <div class="heading">
+            <h2>About Me</h2>
+        </div>
+        <div class="content"> 
+            <div class="contentBx a1">
+            <h3>Im a self-learning web developer<br><br></h3>
+            <p> Im currently practicing frontend fundamentals and 
+                tools for responsive web design through extensive research. 
+                Im currently an Electronics
+                Engineering student at Mindanao State University - 
+                Iligan Institute of Technology. Im about to launch my freelance projects soon. 
+                Keep in touch!
+
+            </p>
+            </div>
+            <div class="a1">
+                <img src="./images/bgv.jpg">
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="Contact">
+        <div class="heading white">
+            <h2>Contact Me</h2>
+        </div>
+        <div class="content">
+            <div class="contactInfo">
+                <h3>Contact Info</h3>
+                <div class="contactInfoBx">
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>Dalipuga, Iligan City 9200</p>
+                        </div>    
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-phone"></i></div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>0906 127 7305</p>
+                        </div>    
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fa fa-envelope-o"></i> </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>bryanjeff.saycon@g.msuiit.edu.ph<br />
+                                 (Academics)</p>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="formBx">
+                <form>
+                    <h3>Send a Message!</h3>
+                    <input type="text" id="subject" placeholder="Subject">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <textarea id="text" placeholder="Your Message"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+                <script>
+                    $('form').on('submit', (e)=> {
+                        e.preventDefault();
+
+                        const email = $('#email').val().trim();
+                        const subject = $('#subject').val().trim();
+                        const text = $('#text').val().trim();
+
+                        const data = {
+                            email, 
+                            subject,
+                            text
+                        };
+
+                        $.post('/email', data, function(){
+                            alert('Server received data');
+                        });
+
+
+                    });;
+
+                    
+                </script>   
+
+
+
+
+            </div>
+        </div>
+    </section>
+    
+    <div class="copyright">
+        <p>This webpage is made from html scratch.</p>
+    </div>
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', function(){
+            var header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 200);
+        });
+
+        function toggleMenu(){
+            var menuToggle = document.querySelector('.toggle');
+            var menu = document.querySelector('.menu');
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+    </script>
+    <!-- Add Social Links and Icons-->
+    <!-- Add image slider and a fancy intro-->
+    <!-- Add Header ICON-->
+    </body>
+</html>
